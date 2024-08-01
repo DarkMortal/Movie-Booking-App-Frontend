@@ -97,7 +97,24 @@ function App() {
       });
       return;
     }
-    updateCurrentPage(1);
+    if (currentPage !== 1) updateCurrentPage(1);
+    else {
+      let query = `${data_url}?page=${currentPage}&limit=${itemsPerPage}&search=${encodeURIComponent(
+        searchRef.current.value
+      )}`;
+      update_loading(true);
+      fetch(query)
+        .then(async (response) => {
+          let data = await response.json();
+          update_movies(data);
+          update_loading(false);
+        })
+        .catch((err) => {
+          console.error(err);
+          update_movies([]);
+          update_loading(false);
+        });
+    }
   }
 
   function getAllBookings() {
@@ -335,7 +352,7 @@ function App() {
           aria-label="next Page"
           icon={<ArrowForwardIcon />}
           onClick={nextPAGE}
-          isDisabled={isLoading || isNull(movie_array)}
+          isDisabled={isLoading || isNull(movie_array) || movie_array.length < itemsPerPage}
         />
       </Container>
       {isNull(loggedInUser) ? null : (

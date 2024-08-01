@@ -97,22 +97,7 @@ function App() {
       });
       return;
     }
-    update_loading(true);
-    fetch(
-      `${data_url}?page=${currentPage}&limit=${itemsPerPage}&search=${encodeURIComponent(
-        searchRef.current.value
-      )}`
-    )
-      .then(async (response) => {
-        let data = await response.json();
-        update_movies(data);
-        update_loading(false);
-      })
-      .catch((err) => {
-        console.error(err);
-        update_movies([]);
-        update_loading(false);
-      });
+    updateCurrentPage(1);
   }
 
   function getAllBookings() {
@@ -360,6 +345,9 @@ function App() {
           overflowX="auto"
           width="90%"
           className="m-auto rounded-xl"
+          style={{
+            transition: "ease-out 0.5s",
+          }}
         >
           <Table>
             <TableCaption color={isDark ? "white" : "black"} fontSize="1rem">

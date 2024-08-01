@@ -128,7 +128,6 @@ function App() {
       }),
     }).then(async (args) => {
       let arg = await args.json();
-      console.log(arg);
       updateBookings(arg);
     });
   }
@@ -383,7 +382,7 @@ function App() {
               </Tr>
             </Thead>
             <Tbody>
-              {Object.keys(bookings).map((e) => {console.log(bookings[e]); return (
+              {Object.keys(bookings).map((e) => (
                 <Tr key={e}>
                   <Td
                     borderColor={isDark ? "#1a202b" : "#EDF2F7"}
@@ -398,7 +397,7 @@ function App() {
                     {getProperDate(bookings[e]["date"])}
                   </Td>
                 </Tr>
-              )})}
+              ))}
             </Tbody>
           </Table>
         </TableContainer>

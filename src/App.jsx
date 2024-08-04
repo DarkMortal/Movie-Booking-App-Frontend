@@ -86,7 +86,7 @@ function App() {
   }, []);
 
   function searchMovie() {
-    if (searchRef.current.value === "") {
+    if (searchRef.current.value.trim() === "") {
       toast({
         title: "Blank search query",
         description: "Please enter a valid search query",
@@ -100,7 +100,7 @@ function App() {
     if (currentPage !== 1) updateCurrentPage(1);
     else {
       let query = `${data_url}?page=${currentPage}&limit=${itemsPerPage}&search=${encodeURIComponent(
-        searchRef.current.value
+        searchRef.current.value.trim()
       )}`;
       update_loading(true);
       fetch(query)
@@ -140,11 +140,11 @@ function App() {
   useEffect(() => {
     update_loading(true);
     let query = "";
-    if (searchRef.current.value === "")
+    if (searchRef.current.value.trim() === "")
       query = `${data_url}?page=${currentPage}&limit=${itemsPerPage}`;
     else
       query = `${data_url}?page=${currentPage}&limit=${itemsPerPage}&search=${encodeURIComponent(
-        searchRef.current.value
+        searchRef.current.value.trim()
       )}`;
     fetch(query)
       .then(async (response) => {

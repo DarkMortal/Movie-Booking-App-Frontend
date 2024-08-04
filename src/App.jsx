@@ -276,6 +276,7 @@ function App() {
                   {Array.from(Array(10).keys(), (index) => (
                     <MenuItem
                       key={index}
+                      isDisabled={isLoading}
                       style={{ backgroundColor: "inherit", color: "inherit" }}
                       onClick={() => {
                         updateCurrentPage(1);

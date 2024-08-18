@@ -408,7 +408,7 @@ function App() {
           </Table>
         </TableContainer>
       )}
-      <Footer isDark={isDark} />
+      <Footer />
     </>
   );
 }

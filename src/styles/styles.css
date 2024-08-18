@@ -27,3 +27,15 @@ body {
 .hoverBlack:hover {
   color: black;
 }
+footer {
+  position: absolute;
+  height: fit-content;
+  margin-left: 0;
+  margin-bottom: 0;
+  width: 100%;
+  background-color: #012148;
+  color: white;
+  text-align: left;
+  overflow: hidden;
+  font-family: "Noto Sans";
+}

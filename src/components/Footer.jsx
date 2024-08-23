@@ -6,7 +6,7 @@ export class Footer extends Component {
   render() {
     return (
       <footer
-        className="text-center text-lg-start text-white"
+        className="text-center text-lg-start text-white root-footer"
         style={{ backgroundColor: "#1c2331" }}
       >
         <section
@@ -55,13 +55,14 @@ export class Footer extends Component {
               className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4"
               style={{ width: "90%", textAlign: "left" }}
             >
-              <h5 className="text-uppercase fw-bold"><strong>About Me</strong></h5>
+              <h5><strong>About Me</strong></h5>
               <hr
                 className="mb-5 mt-0 d-inline-block"
                 style={{
-                  width: "10%",
+                  width: "25%",
                   backgroundColor: "#7c4dff",
-                  height: "3px"
+                  height: "3px",
+                  border: 'none',
                 }}
               />
               <p style={{fontWeight: 'bold'}}>

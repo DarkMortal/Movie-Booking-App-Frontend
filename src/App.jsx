@@ -366,6 +366,7 @@ function App() {
           style={{
             transition: "ease-out 0.5s",
           }}
+          marginBottom={5}
         >
           <Table>
             <TableCaption color={isDark ? "white" : "black"} fontSize="1rem">
